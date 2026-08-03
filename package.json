@@ -1,0 +1,19 @@
+{
+  "name": "krypticdev",
+  "version": "0.1.0",
+  "description": "Kryptic Node.js SDK — passively injects development secrets from the Kryptic daemon into process.env. No-op outside development.",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/inject.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
