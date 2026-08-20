@@ -1,6 +1,6 @@
-// Kryptic Node.js SDK. One job: during development startup, fetch the current
-// project's secrets from the local Kryptic daemon and put them on process.env.
-// Follows daemon/PROTOCOL.md v1. Never throws — a missing daemon means the app
+// Kryptic daemon client for Node.js. One job: during development startup, fetch the
+// current project's secrets from the local Kryptic daemon and put them on process.env.
+// Follows daemon/PROTOCOL.md v1. Never throws - a missing daemon means the app
 // simply starts with whatever environment it already has.
 
 import * as fs from 'fs';
@@ -35,7 +35,7 @@ export async function inject(options: InjectOptions = {}): Promise<InjectResult>
 
   const projectId = options.projectId ?? process.env.KRYPTIC_PROJECT_ID ?? findKrypticJson()?.projectId;
   if (!projectId) {
-    warn('no kryptic.json found (and no KRYPTIC_PROJECT_ID set) — nothing to inject.');
+    warn('no kryptic.json found (and no KRYPTIC_PROJECT_ID set) - nothing to inject.');
     return { injected: 0, skipped: true, reason: 'no_project' };
   }
 
@@ -51,7 +51,7 @@ export async function inject(options: InjectOptions = {}): Promise<InjectResult>
   try {
     response = await request({ v: PROTOCOL_VERSION, type: 'secrets', projectId, environment }, timeoutMs);
   } catch (e) {
-    warn(`daemon not reachable (${(e as Error).message}) — continuing without injected secrets.`);
+    warn(`daemon not reachable (${(e as Error).message}) - continuing without injected secrets.`);
     return { injected: 0, skipped: true, reason: 'daemon_unreachable' };
   }
 
@@ -151,7 +151,7 @@ function findKrypticJson(): KrypticJson | null {
         cachedKrypticJson = JSON.parse(fs.readFileSync(candidate, 'utf8')) as KrypticJson;
         return cachedKrypticJson;
       } catch {
-        warn(`could not parse ${candidate} — ignoring it.`);
+        warn(`could not parse ${candidate} - ignoring it.`);
         break;
       }
     }

@@ -1,7 +1,7 @@
 {
-  "name": "krypticdev",
+  "name": "kryptic-daemon",
   "version": "0.1.0",
-  "description": "Kryptic Node.js SDK — passively injects development secrets from the Kryptic daemon into process.env. No-op outside development.",
+  "description": "Kryptic daemon client for Node.js. Passively injects development secrets from the local Kryptic daemon into process.env. No-op outside development.",
   "license": "Apache-2.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
