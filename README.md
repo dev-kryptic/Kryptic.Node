@@ -1,4 +1,4 @@
-# kryptic-daemon-client
+# @krypticdev/daemon-client
 
 The Kryptic daemon client for Node.js. During development startup it asks the local
 Kryptic daemon for the current project's secrets and puts them on `process.env`.
@@ -6,16 +6,16 @@ In production it is a no-op. It never throws - no daemon just means your app sta
 with the environment it already has.
 
 ```bash
-npm install --save-dev kryptic-daemon-client
+npm install --save-dev @krypticdev/daemon-client
 ```
 
 ```js
 // CommonJS - top of your entry point
-const kryptic = require('kryptic-daemon-client');
+const kryptic = require('@krypticdev/daemon-client');
 kryptic.inject();
 
 // ES modules
-import { inject } from 'kryptic-daemon-client';
+import { inject } from '@krypticdev/daemon-client';
 await inject();
 
 // All secrets now available:

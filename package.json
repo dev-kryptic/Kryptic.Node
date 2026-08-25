@@ -1,8 +1,12 @@
 {
-  "name": "kryptic-daemon-client",
+  "name": "@krypticdev/daemon-client",
   "version": "0.1.0",
   "description": "Kryptic daemon client for Node.js. Passively injects development secrets from the local Kryptic daemon into process.env. No-op outside development.",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dev-kryptic/Kryptic.Node.git"
